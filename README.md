@@ -3,6 +3,13 @@
 
 AQI Sentinel is an AI-powered Urban Air Quality Intelligence platform designed for city administrators. Moving beyond simple reactive dashboards, this platform provides **predictive forecasting**, **geospatial source attribution**, and **actionable enforcement intelligence** to help cities reduce pollution at its source.
 
+## 📸 Application Preview
+<div align="center">
+  <img src="docs/images/delhi_dashboard.png" width="48%" alt="Delhi Dashboard" />
+  <img src="docs/images/mumbai_dashboard.png" width="48%" alt="Mumbai Dashboard" />
+  <p><em>Side-by-side comparison of Delhi (left) and Mumbai (right) showcasing dynamic intelligence adapting to specific city characteristics.</em></p>
+</div>
+
 ## 🚀 Key Features
 - **Hyperlocal Forecasting (72H):** Predicts AQI up to 3 days in advance using LightGBM models trained on historical and meteorological data.
 - **Dynamic Source Attribution:** Uses SHAP values cross-referenced with ground-truth emission inventories (like UrbanEmissions.info APnA) to separate weather impacts from actual human-made pollution sources (e.g., Vehicle Exhaust vs. Industrial).
