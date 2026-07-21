@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     // Fetch stations on load
-    axios.get('http://localhost:8000/api/stations')
+    axios.get('https://etaihackathon.onrender.com/api/stations')
       .then(res => {
         setStations(res.data);
       })

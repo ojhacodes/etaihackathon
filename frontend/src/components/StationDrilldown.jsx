@@ -14,9 +14,9 @@ export default function StationDrilldown({ station }) {
     setLoading(true);
     // Fetch all drilldown data
     Promise.all([
-      axios.get(`http://localhost:8000/api/forecast/${station.id}`),
-      axios.get(`http://localhost:8000/api/attribution/${station.id}`),
-      axios.get(`http://localhost:8000/api/recommendation/${station.id}`)
+      axios.get(`https://etaihackathon.onrender.com/api/forecast/${station.id}`),
+      axios.get(`https://etaihackathon.onrender.com/api/attribution/${station.id}`),
+      axios.get(`https://etaihackathon.onrender.com/api/recommendation/${station.id}`)
     ]).then(([forecastRes, attrRes, recRes]) => {
       setForecast(forecastRes.data);
       setAttribution(attrRes.data);
