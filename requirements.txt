@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+lightgbm
+scikit-learn
+shap
+pandas
+numpy
+scipy
+requests
+jinja2
+python-dotenv
