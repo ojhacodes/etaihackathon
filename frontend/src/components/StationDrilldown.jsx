@@ -3,6 +3,7 @@ import axios from 'axios';
 import ForecastChart from './ForecastChart';
 import AttributionBreakdown from './AttributionBreakdown';
 import RecommendationPanel from './RecommendationPanel';
+import ChatAssistant from './ChatAssistant';
 
 export default function StationDrilldown({ station }) {
   const [forecast, setForecast] = useState(null);
@@ -57,6 +58,12 @@ export default function StationDrilldown({ station }) {
       <div className="glass-panel animate-fade-in" style={{ animationDelay: '0.4s' }}>
         {recommendation && <RecommendationPanel recommendation={recommendation} />}
       </div>
+      <ChatAssistant 
+        station={station} 
+        forecast={forecast} 
+        attribution={attribution} 
+        recommendation={recommendation} 
+      />
     </div>
   );
 }
