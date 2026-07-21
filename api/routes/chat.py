@@ -49,9 +49,13 @@ Keep responses under 3 paragraphs. Use markdown for readability."""
 
     try:
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-        response.raise_for_status()
+        if response.status_code != 200:
+            error_data = response.json()
+            error_msg = error_data.get("error", {}).get("message", response.text)
+            return {"response": f"OpenAI API Error: {error_msg}"}
+            
         data = response.json()
         return {"response": data["choices"][0]["message"]["content"]}
     except Exception as e:
         print(f"LLM Error: {e}")
-        return {"response": f"An error occurred while contacting the AI API. Please verify your API Key in Render."}
+        return {"response": f"An error occurred while contacting the AI API: {str(e)}"}
