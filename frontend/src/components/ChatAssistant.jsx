@@ -42,7 +42,7 @@ export default function ChatAssistant({ station, forecast, attribution, recommen
         station_name: station.name,
         forecast_data: forecast ? forecast.series : null,
         attribution_data: attribution,
-        recommendations: recommendation ? [recommendation.intervention, ...recommendation.warnings] : null
+        recommendations: recommendation ? [recommendation.action, JSON.stringify(recommendation.advisories)] : null
       };
 
       const res = await axios.post(`https://etaihackathon.onrender.com/api/chat/${station.id}`, payload);
