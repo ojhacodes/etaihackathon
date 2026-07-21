@@ -16,11 +16,11 @@ class ChatRequest(BaseModel):
 
 @router.post("/chat/{station_id}")
 async def chat_with_advisor(station_id: str, request: ChatRequest):
-    # Using OPENROUTER_API_KEY as requested
-    api_key = os.environ.get("OPENROUTER_API_KEY")
+    # Using GROQ_API_KEY as requested
+    api_key = os.environ.get("GROQ_API_KEY")
     
     if not api_key:
-        return {"response": "OPENROUTER_API_KEY environment variable is not set. Please configure it in your Render settings."}
+        return {"response": "GROQ_API_KEY environment variable is not set. Please configure it in your Render settings."}
     
     system_prompt = f"""You are the 'AQI Sentinel AI Advisor', a highly intelligent city planning and pollution mitigation expert.
 You are currently looking at data for the station: {request.station_name} (ID: {station_id}).
@@ -35,13 +35,11 @@ Keep responses under 3 paragraphs. Use markdown for readability."""
 
     headers = {
         "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://etaihackathon.vercel.app/", # Optional, for including your app on openrouter.ai rankings.
-        "X-Title": "AQI Sentinel" # Optional. Shows in rankings on openrouter.ai.
+        "Content-Type": "application/json"
     }
     
     payload = {
-        "model": "meta-llama/llama-3-70b-instruct", # Using a highly capable OSS model
+        "model": "llama3-70b-8192", # Using Groq's lightning-fast Llama 3 70B
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": request.message}
@@ -51,11 +49,11 @@ Keep responses under 3 paragraphs. Use markdown for readability."""
     }
 
     try:
-        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
+        response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=payload)
         if response.status_code != 200:
             error_data = response.json()
             error_msg = error_data.get("error", {}).get("message", response.text)
-            return {"response": f"OpenRouter API Error: {error_msg}"}
+            return {"response": f"Groq API Error: {error_msg}"}
             
         data = response.json()
         return {"response": data["choices"][0]["message"]["content"]}
