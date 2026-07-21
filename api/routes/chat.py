@@ -39,7 +39,7 @@ Keep responses under 3 paragraphs. Use markdown for readability."""
     }
     
     payload = {
-        "model": "llama3-70b-8192", # Using Groq's lightning-fast Llama 3 70B
+        "model": "openai/gpt-oss-120b", # Using GPT OSS 120B as requested
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": request.message}
