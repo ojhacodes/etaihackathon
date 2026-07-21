@@ -19,7 +19,22 @@ STATIONS = [
     # Bengaluru
     {"id": "s8", "name": "Koramangala, Bengaluru", "lat": 12.9279, "lon": 77.6271, "city": "Bengaluru"},
     {"id": "s9", "name": "Indiranagar, Bengaluru", "lat": 12.9784, "lon": 77.6408, "city": "Bengaluru"},
-    {"id": "s10", "name": "Jayanagar, Bengaluru", "lat": 12.9299, "lon": 77.5826, "city": "Bengaluru"}
+    {"id": "s10", "name": "Jayanagar, Bengaluru", "lat": 12.9299, "lon": 77.5826, "city": "Bengaluru"},
+    
+    # Chennai
+    {"id": "s11", "name": "Adyar, Chennai", "lat": 13.0012, "lon": 80.2565, "city": "Chennai"},
+    {"id": "s12", "name": "T Nagar, Chennai", "lat": 13.0418, "lon": 80.2341, "city": "Chennai"},
+    {"id": "s13", "name": "Velachery, Chennai", "lat": 12.9759, "lon": 80.2212, "city": "Chennai"},
+    
+    # Kolkata
+    {"id": "s14", "name": "Salt Lake, Kolkata", "lat": 22.5867, "lon": 88.4136, "city": "Kolkata"},
+    {"id": "s15", "name": "Ballygunge, Kolkata", "lat": 22.5280, "lon": 88.3659, "city": "Kolkata"},
+    {"id": "s16", "name": "Jadavpur, Kolkata", "lat": 22.4955, "lon": 88.3709, "city": "Kolkata"},
+    
+    # Hyderabad
+    {"id": "s17", "name": "Banjara Hills, Hyderabad", "lat": 17.4156, "lon": 78.4347, "city": "Hyderabad"},
+    {"id": "s18", "name": "HITEC City, Hyderabad", "lat": 17.4435, "lon": 78.3772, "city": "Hyderabad"},
+    {"id": "s19", "name": "Secunderabad, Hyderabad", "lat": 17.4399, "lon": 78.4983, "city": "Hyderabad"}
 ]
 
 @router.get("/stations", response_model=List[Station])
