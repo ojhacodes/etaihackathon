@@ -3,7 +3,7 @@
 
 AQI Sentinel is an AI-powered Urban Air Quality Intelligence platform designed for city administrators. Moving beyond simple reactive dashboards, this platform provides **predictive forecasting**, **geospatial source attribution**, and **actionable enforcement intelligence** to help cities reduce pollution at its source.
 
-### 🌐 Live Demo: [https://etaihackathon-bgp4.vercel.app/](https://etaihackathon-bgp4.vercel.app/)
+### 🌐 Live Demo: [https://etaihackathon.vercel.app/](https://etaihackathon.vercel.app/)
 
 ## 📸 Application Preview
 <div align="center">
