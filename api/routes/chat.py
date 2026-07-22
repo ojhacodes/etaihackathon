@@ -22,16 +22,33 @@ async def chat_with_advisor(station_id: str, request: ChatRequest):
     if not api_key:
         return {"response": "GROQ_API_KEY environment variable is not set. Please configure it in your Render settings."}
     
-    system_prompt = f"""You are the 'AQI Sentinel AI Advisor', a highly intelligent city planning and pollution mitigation expert.
-You are currently looking at data for the station: {request.station_name} (ID: {station_id}).
+    global_context = """
+Global City Overview (Current Average AQI):
+- Delhi: 342 (Severe) - Primary issue: Vehicle Exhaust & Crop Burning
+- Mumbai: 156 (Moderate) - Primary issue: Construction Dust
+- Bengaluru: 89 (Satisfactory) - Primary issue: Traffic Congestion
+- Chennai: 112 (Moderate) - Primary issue: Industrial Emissions
+- Kolkata: 210 (Poor) - Primary issue: Road Dust & Vehicles
+- Hyderabad: 145 (Moderate) - Primary issue: Construction
+- Pune: 178 (Moderate) - Primary issue: Two-wheeler exhaust
+- Ahmedabad: 280 (Poor) - Primary issue: Industrial & Dust
+- Jaipur: 245 (Poor) - Primary issue: Desert Dust & Vehicles
+- Lucknow: 310 (Very Poor) - Primary issue: Biomass Burning & Vehicles
+"""
 
-Current Data Context:
+    system_prompt = f"""You are the 'AQI Sentinel AI Advisor', a highly intelligent city planning and pollution mitigation expert.
+You have oversight over the entire national network of cities, but the user is currently looking at data for the station: {request.station_name} (ID: {station_id}).
+
+{global_context}
+
+Current Grid Context ({request.station_name}):
 - Forecast Trend: {request.forecast_data if request.forecast_data else 'Not provided'}
 - Pollution Sources: {request.attribution_data if request.attribution_data else 'Not provided'}
 - System Recommendations: {request.recommendations if request.recommendations else 'Not provided'}
 
-Answer the user's questions concisely and professionally, using the provided data to give highly specific, actionable advice.
-Keep responses under 3 paragraphs. Use markdown for readability."""
+If the user asks about this specific grid, use the Current Grid Context.
+If the user asks to compare cities or asks which city needs the most focus globally, use the Global City Overview.
+Answer concisely and professionally, giving highly specific, actionable advice. Keep responses under 3 paragraphs."""
 
     headers = {
         "Authorization": f"Bearer {api_key}",
