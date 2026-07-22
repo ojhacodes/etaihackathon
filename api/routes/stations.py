@@ -34,7 +34,27 @@ STATIONS = [
     # Hyderabad
     {"id": "s17", "name": "Banjara Hills, Hyderabad", "lat": 17.4156, "lon": 78.4347, "city": "Hyderabad"},
     {"id": "s18", "name": "HITEC City, Hyderabad", "lat": 17.4435, "lon": 78.3772, "city": "Hyderabad"},
-    {"id": "s19", "name": "Secunderabad, Hyderabad", "lat": 17.4399, "lon": 78.4983, "city": "Hyderabad"}
+    {"id": "s19", "name": "Secunderabad, Hyderabad", "lat": 17.4399, "lon": 78.4983, "city": "Hyderabad"},
+    
+    # Pune
+    {"id": "s20", "name": "Shivajinagar, Pune", "lat": 18.5308, "lon": 73.8475, "city": "Pune"},
+    {"id": "s21", "name": "Kothrud, Pune", "lat": 18.5074, "lon": 73.8077, "city": "Pune"},
+    {"id": "s22", "name": "Hadapsar, Pune", "lat": 18.5089, "lon": 73.9259, "city": "Pune"},
+    
+    # Ahmedabad
+    {"id": "s23", "name": "Navrangpura, Ahmedabad", "lat": 23.0360, "lon": 72.5614, "city": "Ahmedabad"},
+    {"id": "s24", "name": "Maninagar, Ahmedabad", "lat": 22.9995, "lon": 72.6021, "city": "Ahmedabad"},
+    {"id": "s25", "name": "Bopal, Ahmedabad", "lat": 23.0306, "lon": 72.4589, "city": "Ahmedabad"},
+    
+    # Jaipur
+    {"id": "s26", "name": "Malviya Nagar, Jaipur", "lat": 26.8528, "lon": 75.8049, "city": "Jaipur"},
+    {"id": "s27", "name": "Mansarovar, Jaipur", "lat": 26.8530, "lon": 75.7645, "city": "Jaipur"},
+    {"id": "s28", "name": "Vaishali Nagar, Jaipur", "lat": 26.9126, "lon": 75.7423, "city": "Jaipur"},
+    
+    # Lucknow
+    {"id": "s29", "name": "Gomti Nagar, Lucknow", "lat": 26.8537, "lon": 80.9922, "city": "Lucknow"},
+    {"id": "s30", "name": "Alambagh, Lucknow", "lat": 26.8124, "lon": 80.8996, "city": "Lucknow"},
+    {"id": "s31", "name": "Indira Nagar, Lucknow", "lat": 26.8812, "lon": 80.9892, "city": "Lucknow"}
 ]
 
 @router.get("/stations", response_model=List[Station])
